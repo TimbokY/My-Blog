@@ -73,3 +73,36 @@ div:hover {
 - OPTIONS方法：用于获取当前`URL`所支持的方法，如果获取成功，会有一个`Allow`的头包含类似“GET,POST”这样的信息
 - TRACE方法：用于激发一个远程的，应用层的请求消息回路
 - CONNECT方法：把请求连接转换到透明的TCP/IP通道
+
+# Question5 - JavaScript
+时间：*2019-03-14*
+
+**如何判断是否为数组**
+
+1. Array.prototype.isPrototypeOf
+```js
+Array.prototype.isPrototypeOf([])
+// true
+Array.prototype.isPrototypeOf({})
+// false
+```
+
+2. obj instanceof Array
+```js
+[] instanceof Array
+// true
+[] instanceof String
+// false
+'123' instanceof Array
+// false
+```
+
+3.Array.isArray
+```js
+Array.isArray([])
+// true
+Array.isArray({})
+// false
+Array.isArray(undefined)
+// false
+```
