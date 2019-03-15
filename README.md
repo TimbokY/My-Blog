@@ -130,6 +130,7 @@ obj2.name; // 'Lee'
 ```
 
 **浅拷贝**
+
 对象的浅拷贝可以使用扩展运算符
 ```js
 var a = {
@@ -154,6 +155,7 @@ console.log(b.jobs.first) // native
 ```
 
 **深拷贝**
+
 不借助任何库的话，通常使用以下方法
 ```js
 var a = {
