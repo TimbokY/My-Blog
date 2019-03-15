@@ -106,3 +106,69 @@ Array.isArray({})
 Array.isArray(undefined)
 // false
 ```
+
+# Question6 - JavaScript
+时间：*2019-03-15*
+
+**深浅拷贝**
+
+之所以会出现深浅拷贝的问题，实质上是由于JS对基本类型和引用类型的处理不同。基本类型指的是简单的数据段，而引用类型指的是一个对象，而JS不允许我们直接操作内存中的地址，也就是不能操作对象的内存空间，所以，我们对对象的操作都只是在操作它的引用而已。
+
+在复制时也是一样，如果我们复制一个基本类型的值时，会创建一个新值，并把它保存在新的变量的位置上。而如果我们复制一个引用类型时，同样会把变量中的值复制一份放到新的变量空间里，但此时复制的东西并不是对象本身，而是指向该对象的指针。所以我们复制引用类型后，两个变量其实指向同一个对象，改变其中一个对象，会影响到另外一个。
+
+```js
+var num = 10;
+var obj = {
+    name: 'Nicholas'
+}
+
+var num2 = num;
+var obj2 = obj;
+
+obj.name = 'Lee';
+obj2.name; // 'Lee'
+```
+
+**浅拷贝**
+对象的浅拷贝可以使用扩展运算符
+```js
+var a = {
+  age: 1
+}
+var b = { ...a }
+a.age = 2
+console.log(b.age) // 1
+```
+
+浅拷贝只解决了第一层的问题，如果接下去的值中还有对象的话，那么就又回到最开始的话题了，两者享有相同的地址。要解决这个问题，我们就得使用深拷贝了
+```js
+var a = {
+  age: 1,
+  jobs: {
+    first: 'FE'
+  }
+}
+var b = { ...a }
+a.jobs.first = 'native'
+console.log(b.jobs.first) // native
+```
+
+**深拷贝**
+不借助任何库的话，通常使用以下方法
+```js
+var a = {
+  age: 1,
+  jobs: {
+    first: 'FE'
+  }
+}
+var b = JSON.parse(JSON.stringify(a))
+a.jobs.first = 'native'
+console.log(b.jobs.first) // FE
+```
+但是该方法也是有局限性的：
+
+- 会忽略 undefined
+- 会忽略 symbol
+- 不能序列化函数
+- 不能解决循环引用的对象
