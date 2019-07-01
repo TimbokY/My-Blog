@@ -379,3 +379,31 @@ MyPromise.prototype.then = function(onFulfilled,onRejected){
   - `localStorage`存储持久数据，浏览器关闭后数据不丢失除非主动删除数据
   - `sessionStorage` 数据在当前浏览器窗口关闭后自动删除
   - `cookie` 设置的`cookie`过期时间之前一直有效，即使窗口或浏览器关闭
+  
+# Question11 - JavaScript
+时间：*2019-07-01*
+
+## 简易的[webpack](https://webpack.docschina.org/concepts/)
+```js
+const path = require('path');
+
+module.exports = {
+  // JS 执行入口文件
+  entry: './main.js',
+  output: {
+    // 把所有依赖的模块合并输出到一个 bundle.js 文件
+    filename: 'bundle.js',
+    // 输出文件都放到 dist 目录下
+    path: path.resolve(__dirname, './dist'),
+  },
+  module: {
+    rules: [
+      {
+        // 用正则去匹配要用该 loader 转换的 css 文件
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader'],
+      }
+    ]
+  }
+};
+```
