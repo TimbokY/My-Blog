@@ -6,11 +6,9 @@
 - 如果哪天没更新，那肯定是bug找上我了。
 - 给自己立个flag，锻炼学习的耐心,表名学习的决心。
 
-## 题目地址
-[question-2019.md](https://github.com/TimbokY/One-question-a-day/blob/master/question-2019.md)
+## 每日一题
+[question-2019](https://github.com/TimbokY/One-question-a-day/blob/master/One-question-a-day/question-2019.md)
 
+[question-2020](https://github.com/TimbokY/One-question-a-day/blob/master/One-question-a-day/question-2020.md)
 
-[question-2020.md](https://github.com/TimbokY/One-question-a-day/blob/master/question-2020.md)
-
-
-
+## 博客
